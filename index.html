@@ -3,166 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atomic Watches | Product Details</title>
+    <title>Atomic Watches | Premium Smartwatches</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Base Styles */
+        /* === Luxury Gold/Yellow Theme === */
+        :root {
+            --primary: #FFD700;  /* Gold/Yellow */
+            --secondary: #000000;
+            --accent: #25D366;   /* WhatsApp Green */
+            --gmail-red: #EA4335;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f5f5f5;
             margin: 0;
-            padding: 20px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            animation: gradientShift 10s infinite alternate;
         }
 
-        /* Product Header */
-        .product-header {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
-        /* Variant Selector */
-        .variant-option {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+        /* Navbar with Contact Button */
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn {
+            background: var(--gmail-red);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-        .variant-option:hover {
-            border-color: #FFD700;
-            background: #fff8e1;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        /* Price Section */
-        .price-section {
-            background: #fff3e0;
+        /* Watch Image Section */
+        .hero {
+            margin-top: 100px;
+            text-align: center;
             padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .discounted-price {
-            font-size: 32px;
-            color: #B12704;
-            font-weight: 700;
-        }
-        .original-price {
-            text-decoration: line-through;
-            color: #666;
-            margin-left: 15px;
         }
 
-        /* Delivery Info */
-        .delivery-card {
-            background: white;
-            padding: 15px;
-            border-left: 4px solid #FFD700;
+        .watch-image {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Product Card */
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            text-align: center;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #B12704;
             margin: 15px 0;
         }
 
-        /* Offers Section */
-        .offer-tag {
-            background: #fce4ec;
-            color: #c2185b;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 5px;
-            font-weight: 500;
+        .original-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 18px;
         }
 
-        /* Action Buttons */
-        .action-buttons {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 15px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 10px;
-        }
-        .btn {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-        .cart-btn {
-            background: #FFD700;
-            color: #000;
-        }
-        .buy-btn {
-            background: #25D366;
+        /* Buy Button */
+        .buy-button {
+            background: var(--accent);
             color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 80%;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .buy-button:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
-    <div class="product-header">
-        <h1>Atomic Atom 1 Smartwatch</h1>
-        
-        <!-- Variant Selection -->
-        <div class="variant-section">
-            <h3>Case Color: Starlight Sport</h3>
-            <div class="variant-option">Starlight</div>
-            <div class="variant-option">Midnight</div>
-            <div class="variant-option">Silver</div>
-        </div>
-
-        <div class="variant-section">
-            <h3>Display Size: 41 mm</h3>
-            <div class="variant-option">41mm</div>
-            <div class="variant-option">45mm</div>
+    <!-- Navbar with Gmail Contact -->
+    <div class="navbar">
+        <h1>ATOMIC WATCHES</h1>
+        <div class="contact-btn" onclick="window.location.href='mailto:atomicwatches321@gmail.com?subject=Atomic%20Watches%20Inquiry&body=Hi%20there!'">
+            <i class="fas fa-envelope"></i> Contact
         </div>
     </div>
 
-    <!-- Price Section -->
-    <div class="price-section">
-        <div class="discounted-price">₹12,999
-            <span class="original-price">₹15,999</span>
+    <!-- Watch Image with Dino Game -->
+    <div class="hero">
+        <img src="watch.jpg" 
+             alt="Atomic Atom 1" 
+             class="watch-image"
+             onclick="window.open('https://chromedino.com/', '_blank')">
+    </div>
+
+    <!-- Product Card -->
+    <div class="product-card">
+        <h2>Atomic Atom 1</h2>
+        <p>Premium Smartwatch with AMOLED Display</p>
+        <div class="product-price">
+            <span class="original-price">₹1,500</span><br>
+            ₹1,200 <span style="color: #25D366;">(20% OFF!)</span>
         </div>
-        <p>40% OFF! Limited Time Offer</p>
-    </div>
-
-    <!-- Delivery Info -->
-    <div class="delivery-card">
-        <h3>Delivery to Bhagabar - 812004</h3>
-        <p>FREE Delivery • Guaranteed by 18 Apr, Friday</p>
-    </div>
-
-    <!-- Offers -->
-    <div class="offers-section">
-        <h2>Available Offers</h2>
-        <div class="offer-tag">Bank Offer: Get ₹2000 off</div>
-        <div class="offer-tag">Exchange Offer: Up to ₹1800</div>
-        <div class="offer-tag">Special Coupon: FIRSTBUY</div>
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="action-buttons">
-        <button class="btn cart-btn">Add to Cart</button>
-        <button class="btn buy-btn" 
-                onclick="window.open('https://wa.me/+916201450603?text=I%20want%20to%20buy%20Atomic%20Atom%201%20for%20₹12,999')">
-            Buy Now
+        <button class="buy-button" onclick="redirectToWhatsApp('Atomic Atom 1')">
+            <i class="fab fa-whatsapp"></i> Buy Now
         </button>
     </div>
 
-    <!-- Product Features -->
-    <div class="specs-section">
-        <h2>Product Features</h2>
-        <ul>
-            <li>AMOLED Display with Always-On feature</li>
-            <li>7-day battery life</li>
-            <li>Water resistant (5ATM)</li>
-            <li>Built-in GPS & Health Tracking</li>
-        </ul>
-    </div>
+    <script>
+        // WhatsApp Integration
+        function redirectToWhatsApp(productName) {
+            const message = `Hi! I want to buy ${productName} for ₹1,200.`;
+            window.open(`https://wa.me/+916201450603?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (document.querySelector('.watch-image')) {
+                document.querySelector('.watch-image').style.transform = 
+                    `translateY(${scrolled * 0.2}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
